@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="2.1"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <jaxb:globalBindings>
+        <jaxb:serializable uid="1"/>
+
+        <!-- specify global date time adapter -->
+        <!-- default is javax.xml.datatype.XMLGregorianCalendar -->
+        <!-- default overridden with java.util.Calendar -->
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
+                       parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
+                       printMethod="javax.xml.bind.DatatypeConverter.printDateTime"/>
+
+    </jaxb:globalBindings>
+
+</jaxb:bindings>

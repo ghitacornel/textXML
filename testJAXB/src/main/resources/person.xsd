@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.app.my/jaxb/gen"
+        xmlns:person="http://www.app.my/jaxb/gen"
+        elementFormDefault="qualified">
+
+    <!-- set package name using 'targetNamespace' -->
+
+    <!-- root element -->
+    <element name="persons">
+        <complexType>
+            <sequence>
+                <element name="person" type="person:Person" maxOccurs="unbounded" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Person">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="salary" type="decimal"/>
+            <element name="dateOfBirth" type="dateTime" minOccurs="0"/>
+            <element name="address" type="person:Address" minOccurs="0"/>
+        </sequence>
+        <attribute name="id" type="int"/>
+    </complexType>
+
+    <complexType name="Address">
+        <sequence>
+            <element name="state" type="string"/>
+            <element name="city" type="string"/>
+            <element name="street" type="string"/>
+            <element name="number" type="string"/>
+            <element name="zip" type="int"/>
+        </sequence>
+        <attribute name="country" type="NMTOKEN"/>
+    </complexType>
+
+</schema>

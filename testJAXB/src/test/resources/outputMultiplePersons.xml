@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persons xmlns="http://www.app.my/jaxb/gen">
+    <person id="1">
+        <name>ion</name>
+        <salary>246.8</salary>
+        <dateOfBirth>2002-04-04T00:00:00+03:00</dateOfBirth>
+    </person>
+    <person id="2">
+        <name>alex</name>
+        <salary>456.7</salary>
+        <address country="US">
+            <state>state2</state>
+            <city>city2</city>
+            <street>street2</street>
+            <number>number2</number>
+            <zip>456</zip>
+        </address>
+    </person>
+    <person id="3">
+        <name>vasile</name>
+        <salary>789</salary>
+        <address country="RO">
+            <state>state1</state>
+            <city>city1</city>
+            <street>street1</street>
+            <number>number1</number>
+            <zip>123</zip>
+        </address>
+    </person>
+</persons>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persons xmlns="http://www.app.my/jaxb/gen">
+    <person id="1">
+        <name>ion</name>
+        <salary>123.4</salary>
+        <dateOfBirth>2000-02-02T00:00:00+02:00</dateOfBirth>
+    </person>
+</persons>
