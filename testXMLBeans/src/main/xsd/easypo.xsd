@@ -9,7 +9,7 @@
                 <xs:element name="customer" type="po:customer"/>
                 <xs:element name="date" type="xs:dateTime"/>
                 <xs:element name="line-item" type="po:line-item" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="shipper" type="po:shipper" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="shipper" type="po:shipper" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -43,18 +43,4 @@ final public class Utils {
         }
     }
 
-    public static String write(Document document) {
-        ByteArrayOutputStream outputStream;
-        try {
-            TransformerFactory tfFactory = TransformerFactory.newInstance();
-            Transformer tf = tfFactory.newTransformer();
-            tf.setOutputProperty(OutputKeys.INDENT, "yes");
-            outputStream = new ByteArrayOutputStream();
-            tf.transform(new DOMSource(document), new StreamResult(outputStream));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return new String(outputStream.toByteArray());
-    }
-
 }
