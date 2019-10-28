@@ -55,6 +55,14 @@ final public class Utils {
             JAXBContext context = JAXBContext.newInstance(Persons.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            // setup schema validator
+            {
+                SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                Schema schema = schemaFactory.newSchema(Paths.get("src", "main", "resources", "person.xsd").toFile());
+                marshaller.setSchema(schema);
+            }
+
             marshaller.marshal(model, outputStream);
         } catch (Exception e) {
             throw new RuntimeException(e);
