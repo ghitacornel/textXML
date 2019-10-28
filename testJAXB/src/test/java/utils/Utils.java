@@ -2,9 +2,12 @@ package utils;
 
 import my.app.jaxb.gen.Persons;
 
+import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
@@ -32,6 +35,14 @@ final public class Utils {
         try {
             JAXBContext context = JAXBContext.newInstance(Persons.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
+
+            // setup schema validator
+            {
+                SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                Schema schema = schemaFactory.newSchema(Paths.get("src", "main", "resources", "person.xsd").toFile());
+                unmarshaller.setSchema(schema);
+            }
+
             return (Persons) unmarshaller.unmarshal(new StringReader(xmlString));
         } catch (Exception e) {
             throw new RuntimeException(e);
