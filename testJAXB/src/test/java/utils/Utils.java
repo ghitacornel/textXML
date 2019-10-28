@@ -31,21 +31,20 @@ final public class Utils {
     public static Persons read(String xmlString) {
         try {
             JAXBContext context = JAXBContext.newInstance(Persons.class);
-            Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
-            return (Persons) jaxbUnmarshaller.unmarshal(new StringReader(xmlString));
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            return (Persons) unmarshaller.unmarshal(new StringReader(xmlString));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     public static String write(Persons model) {
-        ByteArrayOutputStream outputStream;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try {
             JAXBContext context = JAXBContext.newInstance(Persons.class);
-            Marshaller mar = context.createMarshaller();
-            mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            outputStream = new ByteArrayOutputStream();
-            mar.marshal(model, outputStream);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.marshal(model, outputStream);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
