@@ -35,22 +35,21 @@ final public class Utils {
 
     public static Document parseDocument(String inputXML) {
         try {
-            DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = df.newDocumentBuilder();
-            return builder.parse(new InputSource(new StringReader(inputXML)));
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            return documentBuilder.parse(new InputSource(new StringReader(inputXML)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     public static String write(Document document) {
-        ByteArrayOutputStream outputStream;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try {
-            TransformerFactory tfFactory = TransformerFactory.newInstance();
-            Transformer tf = tfFactory.newTransformer();
-            tf.setOutputProperty(OutputKeys.INDENT, "yes");
-            outputStream = new ByteArrayOutputStream();
-            tf.transform(new DOMSource(document), new StreamResult(outputStream));
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "no");
+            transformer.transform(new DOMSource(document), new StreamResult(outputStream));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
