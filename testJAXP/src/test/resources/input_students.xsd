@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
     <!-- XML Schema Generated from XML Document on Mon Oct 28 2019 16:25:52 GMT+0200 (Eastern European Standard Time) -->
     <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
     <xs:element name="students">
