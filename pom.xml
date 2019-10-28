@@ -15,6 +15,7 @@
         <module>testXMLBeans</module>
         <module>testXPath</module>
         <module>testSAX</module>
+        <module>testSaxon</module>
     </modules>
 
     <properties>
