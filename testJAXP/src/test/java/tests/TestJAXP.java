@@ -19,18 +19,6 @@ import java.nio.file.Paths;
 public class TestJAXP {
 
     @Test
-    public void validate_XML_With_XSD() {
-        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        try {
-            Schema schema = schemaFactory.newSchema(Paths.get("src", "test", "resources", "input_students.xsd").toFile());
-            Validator validator = schema.newValidator();
-            validator.validate(new StreamSource(Paths.get("src", "test", "resources", "input_students.xml").toFile()));
-        } catch (Exception e) {
-            Assert.fail("validation failure");
-        }
-    }
-
-    @Test
     public void parseValidateAndChangeXML() {
         String inputXML = Utils.readFile("input_students.xml");
         Document document = Utils.parseDocument(inputXML);
