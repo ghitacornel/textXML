@@ -16,6 +16,7 @@
         <module>testXPath</module>
         <module>testSAX</module>
         <module>testSaxon</module>
+        <module>testJSONB</module>
     </modules>
 
     <properties>
