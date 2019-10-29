@@ -6,6 +6,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
 
 import javax.xml.XMLConstants;
@@ -65,8 +66,7 @@ public class TestJAXP {
         String actualXML = Utils.write(document);
         String expectedXML = Utils.readFile("output_students.xml");
 
-        actualXML = actualXML.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
-        Assert.assertEquals(expectedXML.trim(), actualXML.trim());
+        Assert.assertThat(actualXML, CompareMatcher.isSimilarTo(expectedXML).ignoreWhitespace());
 
     }
 }

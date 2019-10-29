@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -38,8 +39,7 @@ public class TestProduce {
         String actualXML = Utils.write(document);
         String expectedXML = Utils.readFile("output_dummy.xml");
 
-        actualXML = actualXML.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
-        Assert.assertEquals(expectedXML.trim(), actualXML.trim());
+        Assert.assertThat(actualXML, CompareMatcher.isSimilarTo(expectedXML).ignoreWhitespace());
 
     }
 }
