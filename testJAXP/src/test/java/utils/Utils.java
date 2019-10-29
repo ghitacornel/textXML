@@ -2,7 +2,9 @@ package utils;
 
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
+import org.xml.sax.helpers.DefaultHandler;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -10,6 +12,8 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
@@ -36,7 +40,19 @@ final public class Utils {
     public static Document parseDocument(String inputXML) {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+
+            // for validation
+            documentBuilderFactory.setNamespaceAware(true);
+            documentBuilderFactory.setValidating(true);
+            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Schema schema = schemaFactory.newSchema(Paths.get("src", "test", "resources", "input_students.xsd").toFile());
+            documentBuilderFactory.setSchema(schema);
+
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+
+            // for validation
+            documentBuilder.setErrorHandler(new DefaultHandler());
+
             return documentBuilder.parse(new InputSource(new StringReader(inputXML)));
         } catch (Exception e) {
             throw new RuntimeException(e);
