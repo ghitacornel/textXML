@@ -40,19 +40,7 @@ final public class Utils {
     public static Document parseDocument(String inputXML) {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-
-            // for validation
-            documentBuilderFactory.setNamespaceAware(true);
-            documentBuilderFactory.setValidating(true);
-            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = schemaFactory.newSchema(Paths.get("src", "test", "resources", "input_students.xsd").toFile());
-            documentBuilderFactory.setSchema(schema);
-
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-
-            // for validation
-            documentBuilder.setErrorHandler(new DefaultHandler());
-
             return documentBuilder.parse(new InputSource(new StringReader(inputXML)));
         } catch (Exception e) {
             throw new RuntimeException(e);
