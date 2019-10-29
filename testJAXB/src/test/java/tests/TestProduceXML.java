@@ -5,6 +5,7 @@ import my.app.jaxb.gen.Person;
 import my.app.jaxb.gen.Persons;
 import org.junit.Assert;
 import org.junit.Test;
+import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
 
 import java.math.BigDecimal;
@@ -38,8 +39,7 @@ public class TestProduceXML {
         String actualXML = Utils.write(persons);
         String expectedXML = Utils.readFile("expectedSinglePerson.xml");
 
-        actualXML = actualXML.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
-        Assert.assertEquals(expectedXML.trim(), actualXML.trim());
+        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
 
     }
 
@@ -80,8 +80,7 @@ public class TestProduceXML {
         String actualXML = Utils.write(persons);
         String expectedXML = Utils.readFile("expectedPersonWithAddress.xml");
 
-        actualXML = actualXML.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
-        Assert.assertEquals(expectedXML.trim(), actualXML.trim());
+        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
 
     }
 
@@ -169,8 +168,7 @@ public class TestProduceXML {
         String actualXML = Utils.write(persons);
         String expectedXML = Utils.readFile("expectedMultiplePersons.xml");
 
-        actualXML = actualXML.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
-        Assert.assertEquals(expectedXML.trim(), actualXML.trim());
+        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
 
     }
 
