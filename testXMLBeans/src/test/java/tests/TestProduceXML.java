@@ -6,6 +6,7 @@ import org.openuri.easypo.Customer;
 import org.openuri.easypo.LineItem;
 import org.openuri.easypo.PurchaseOrderDocument;
 import org.openuri.easypo.Shipper;
+import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
 
 import java.math.BigDecimal;
@@ -62,6 +63,6 @@ public class TestProduceXML {
         String actualXML = Utils.write(purchaseOrderDocument);
         String expectedXML = Utils.readFile("expectedProducedXML.xml");
 
-        Assert.assertEquals(expectedXML, actualXML);
+        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML).ignoreWhitespace());
     }
 }

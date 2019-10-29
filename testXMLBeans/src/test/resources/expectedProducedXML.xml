@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <eas:purchase-order xmlns:eas="http://openuri.org/easypo">
-<eas:customer age="20">
-<eas:name>customer name</eas:name>
-<eas:address>customer address</eas:address>
-</eas:customer>
-<eas:date>2000-02-02</eas:date>
-<eas:line-item>
-<eas:description>line item 1</eas:description>
-<eas:per-unit-ounces>1</eas:per-unit-ounces>
-<eas:price>2</eas:price>
-<eas:quantity>3</eas:quantity>
-</eas:line-item>
-<eas:line-item>
-<eas:description>line item 2</eas:description>
-<eas:per-unit-ounces>4</eas:per-unit-ounces>
-<eas:price>5</eas:price>
-<eas:quantity>6</eas:quantity>
-</eas:line-item>
-<eas:shipper>
-<eas:name>shipper name</eas:name>
-<eas:per-ounce-rate>3</eas:per-ounce-rate>
-</eas:shipper>
+    <eas:customer age="20">
+        <eas:name>customer name</eas:name>
+        <eas:address>customer address</eas:address>
+    </eas:customer>
+    <eas:date>2000-02-02</eas:date>
+    <eas:line-item>
+        <eas:description>line item 1</eas:description>
+        <eas:per-unit-ounces>1</eas:per-unit-ounces>
+        <eas:price>2</eas:price>
+        <eas:quantity>3</eas:quantity>
+    </eas:line-item>
+    <eas:line-item>
+        <eas:description>line item 2</eas:description>
+        <eas:per-unit-ounces>4</eas:per-unit-ounces>
+        <eas:price>5</eas:price>
+        <eas:quantity>6</eas:quantity>
+    </eas:line-item>
+    <eas:shipper>
+        <eas:name>shipper name</eas:name>
+        <eas:per-ounce-rate>3</eas:per-ounce-rate>
+    </eas:shipper>
 </eas:purchase-order>

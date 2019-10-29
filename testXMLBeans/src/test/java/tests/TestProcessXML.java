@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openuri.easypo.LineItem;
 import org.openuri.easypo.PurchaseOrderDocument;
+import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
 
 import java.math.BigDecimal;
@@ -34,7 +35,7 @@ public class TestProcessXML {
         String actualXML = Utils.write(purchaseOrderDocument);
         String expectedXML = Utils.readFile("output.xml");
 
-        Assert.assertEquals(expectedXML, actualXML);
+        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML).ignoreWhitespace());
 
     }
 }
