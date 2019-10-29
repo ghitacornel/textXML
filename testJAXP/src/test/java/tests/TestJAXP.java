@@ -20,18 +20,14 @@ public class TestJAXP {
 
     @Test
     public void validate_XML_With_XSD() {
-        boolean valid;
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try {
             Schema schema = schemaFactory.newSchema(Paths.get("src", "test", "resources", "input_students.xsd").toFile());
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(Paths.get("src", "test", "resources", "input_students.xml").toFile()));
-            valid = true;
         } catch (Exception e) {
-            e.printStackTrace();
-            valid = false;
+            Assert.fail("validation failure");
         }
-        Assert.assertTrue(valid);
     }
 
     @Test
