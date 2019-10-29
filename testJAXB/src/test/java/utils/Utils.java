@@ -37,6 +37,7 @@ final public class Utils {
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
             // setup schema validator
+            // if not set no validation will be performed
             {
                 SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
                 Schema schema = schemaFactory.newSchema(Paths.get("src", "main", "resources", "person.xsd").toFile());
