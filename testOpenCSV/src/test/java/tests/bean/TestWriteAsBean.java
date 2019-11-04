@@ -49,12 +49,12 @@ public class TestWriteAsBean {
                 .parse();
 
         StringWriter stringWriter = new StringWriter();
-        StatefulBeanToCsv marshaller = new StatefulBeanToCsvBuilder(stringWriter)
+        new StatefulBeanToCsvBuilder<BeanByName>(stringWriter)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
                 .withSeparator('?')// custom
                 .withLineEnd("\n")// custom
-                .build();
-        marshaller.write(data);
+                .build()
+                .write(data);
 
         String expectedContent = Utils.readFile("outputBeanByName.csv");
         String actualContent = stringWriter.toString();
