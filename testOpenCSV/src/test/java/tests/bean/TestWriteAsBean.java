@@ -26,12 +26,12 @@ public class TestWriteAsBean {
                 .parse();
 
         StringWriter stringWriter = new StringWriter();
-        StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(stringWriter)
+        StatefulBeanToCsv marshaller = new StatefulBeanToCsvBuilder(stringWriter)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
                 .withSeparator('?')// custom
                 .withLineEnd("\n")// custom
                 .build();
-        sbc.write(data);
+        marshaller.write(data);
 
         String expectedContent = Utils.readFile("outputBeanByPosition.csv");
         String actualContent = stringWriter.toString();
@@ -48,14 +48,13 @@ public class TestWriteAsBean {
                 .build()
                 .parse();
 
-
         StringWriter stringWriter = new StringWriter();
-        StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(stringWriter)
+        StatefulBeanToCsv marshaller = new StatefulBeanToCsvBuilder(stringWriter)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
                 .withSeparator('?')// custom
                 .withLineEnd("\n")// custom
                 .build();
-        sbc.write(data);
+        marshaller.write(data);
 
         String expectedContent = Utils.readFile("outputBeanByName.csv");
         String actualContent = stringWriter.toString();
