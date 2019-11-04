@@ -2,7 +2,6 @@ package tests.bean;
 
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import model.BeanByName;
 import model.BeanByPosition;
@@ -26,12 +25,12 @@ public class TestWriteAsBean {
                 .parse();
 
         StringWriter stringWriter = new StringWriter();
-        StatefulBeanToCsv marshaller = new StatefulBeanToCsvBuilder(stringWriter)
+        new StatefulBeanToCsvBuilder<BeanByPosition>(stringWriter)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
                 .withSeparator('?')// custom
                 .withLineEnd("\n")// custom
-                .build();
-        marshaller.write(data);
+                .build()
+                .write(data);
 
         String expectedContent = Utils.readFile("outputBeanByPosition.csv");
         String actualContent = stringWriter.toString();
