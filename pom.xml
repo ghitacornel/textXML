@@ -17,6 +17,7 @@
         <module>testSAX</module>
         <module>testSaxon</module>
         <module>testJSONB</module>
+        <module>testOpenCSV</module>
     </modules>
 
     <properties>
