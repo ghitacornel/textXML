@@ -50,8 +50,6 @@ public class TestWriteAsBean {
         StringWriter stringWriter = new StringWriter();
         new StatefulBeanToCsvBuilder<BeanByName>(stringWriter)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
-                .withSeparator('?')// custom
-                .withLineEnd("\n")// custom
                 .build()
                 .write(data);
 
