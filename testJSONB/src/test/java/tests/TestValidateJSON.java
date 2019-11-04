@@ -10,13 +10,13 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class TestInvalidJSON {
+public class TestValidateJSON {
 
     @Test
     public void testValid() {
 
-        JSONObject jsonSchema = new JSONObject(new JSONTokener(TestInvalidJSON.class.getResourceAsStream("/product_schema.json")));
-        JSONObject jsonSubject = new JSONObject(new JSONTokener(TestInvalidJSON.class.getResourceAsStream("/product_valid.json")));
+        JSONObject jsonSchema = new JSONObject(new JSONTokener(TestValidateJSON.class.getResourceAsStream("/product_schema.json")));
+        JSONObject jsonSubject = new JSONObject(new JSONTokener(TestValidateJSON.class.getResourceAsStream("/product_valid.json")));
 
         Schema schema = SchemaLoader.load(jsonSchema);
         schema.validate(jsonSubject);
@@ -25,8 +25,8 @@ public class TestInvalidJSON {
     @Test(expected = ValidationException.class)
     public void testInvalid() {
 
-        JSONObject jsonSchema = new JSONObject(new JSONTokener(TestInvalidJSON.class.getResourceAsStream("/product_schema.json")));
-        JSONObject jsonSubject = new JSONObject(new JSONTokener(TestInvalidJSON.class.getResourceAsStream("/product_invalid.json")));
+        JSONObject jsonSchema = new JSONObject(new JSONTokener(TestValidateJSON.class.getResourceAsStream("/product_schema.json")));
+        JSONObject jsonSubject = new JSONObject(new JSONTokener(TestValidateJSON.class.getResourceAsStream("/product_invalid.json")));
 
         Schema schema = SchemaLoader.load(jsonSchema);
         try {
