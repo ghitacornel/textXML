@@ -3,6 +3,7 @@ package model;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
 import com.opencsv.bean.CsvNumber;
+import com.opencsv.bean.CsvRecurse;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,6 +23,9 @@ public class BeanByName {
     @CsvDate("yyyy-MM-dd")
     @CsvBindByName(column = "dob")
     private Date dateOfBirth;
+
+    @CsvRecurse
+    private Address address;
 
     @Override
     public String toString() {
