@@ -34,7 +34,7 @@ public class TestReadAsBean {
                 .build()
                 .parse();
 
-        String expected = "[BeanByPosition{c1='ion', c2=30, c3=01-Apr-1998}, BeanByPosition{c1='gheorghe', c2=20, c3=02-May-1998}]";
+        String expected = "[BeanByPosition{c1='ion', c2=30, c3=01-Apr-1998, c4=123.456}, BeanByPosition{c1='gheorghe', c2=20, c3=02-May-1998, c4=23.45}]";
         Assert.assertEquals(expected, data.toString());
 
     }
