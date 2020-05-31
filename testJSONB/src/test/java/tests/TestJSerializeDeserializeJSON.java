@@ -3,6 +3,7 @@ package tests;
 import model.Person;
 import org.junit.Assert;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 import utils.Utils;
 
 import javax.json.bind.Jsonb;
@@ -28,7 +29,7 @@ public class TestJSerializeDeserializeJSON {
         String actualJSON = jsonb.toJson(person);
         String expectedJSON = Utils.readFile("expected_person.json");
 
-        Assert.assertEquals(expectedJSON, actualJSON);
+        JSONAssert.assertEquals(expectedJSON, actualJSON, false);
 
     }
 
@@ -45,8 +46,7 @@ public class TestJSerializeDeserializeJSON {
         String actualJSON = jsonb.toJson(personsListInitial);
         String expectedJSON = Utils.readFile("input_persons.json");
 
-        actualJSON = actualJSON.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
-        Assert.assertEquals(expectedJSON, actualJSON);
+        JSONAssert.assertEquals(expectedJSON, actualJSON, false);
 
         List<Person> personListFinal = jsonb.fromJson(expectedJSON, new ArrayList<Person>() {
         }.getClass().getGenericSuperclass());

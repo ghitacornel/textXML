@@ -33,22 +33,30 @@
         </dependency>
 
         <!-- another implementation -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.geronimo.specs</groupId>-->
-<!--            <artifactId>geronimo-json_1.1_spec</artifactId>-->
-<!--            <version>1.2</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.johnzon</groupId>-->
-<!--            <artifactId>johnzon-jsonb</artifactId>-->
-<!--            <version>1.1.13</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.geronimo.specs</groupId>-->
+        <!--            <artifactId>geronimo-json_1.1_spec</artifactId>-->
+        <!--            <version>1.2</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.johnzon</groupId>-->
+        <!--            <artifactId>johnzon-jsonb</artifactId>-->
+        <!--            <version>1.1.13</version>-->
+        <!--        </dependency>-->
 
         <!-- FOR VALIDATION -->
         <dependency>
             <groupId>org.everit.json</groupId>
             <artifactId>org.everit.json.schema</artifactId>
             <version>1.5.1</version>
+        </dependency>
+
+        <!-- FOR JSON COMPARISON -->
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>1.5.0</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

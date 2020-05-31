@@ -1,17 +1,16 @@
-
 [
-    {
-        "email": "one@test.com",
-        "id": 1,
-        "person-name": "one",
-        "registered_date": "09-07-2019",
-        "salary": "1000.0"
-    },
-    {
-        "email": "two@test.com",
-        "id": 2,
-        "person-name": "two",
-        "registered_date": "09-07-2019",
-        "salary": "2000.0"
-    }
+  {
+    "email": "one@test.com",
+    "id": 1,
+    "person-name": "one",
+    "registered_date": "09-07-2019",
+    "salary": "1000.0"
+  },
+  {
+    "email": "two@test.com",
+    "id": 2,
+    "person-name": "two",
+    "registered_date": "09-07-2019",
+    "salary": "2000.0"
+  }
 ]

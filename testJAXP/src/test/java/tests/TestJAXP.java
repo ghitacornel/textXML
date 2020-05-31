@@ -1,5 +1,6 @@
 package tests;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -8,13 +9,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
-
-import javax.xml.XMLConstants;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Validator;
-import java.nio.file.Paths;
 
 public class TestJAXP {
 
@@ -50,7 +44,7 @@ public class TestJAXP {
         String actualXML = Utils.write(document);
         String expectedXML = Utils.readFile("output_students.xml");
 
-        Assert.assertThat(actualXML, CompareMatcher.isSimilarTo(expectedXML).ignoreWhitespace());
+        MatcherAssert.assertThat(actualXML, CompareMatcher.isSimilarTo(expectedXML).ignoreWhitespace());
 
     }
 }

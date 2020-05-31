@@ -37,7 +37,6 @@ public class TestModifyXML {
         String actualXML = Utils.write(persons);
         String expectedXML = Utils.readFile("outputMultiplePersons.xml");
 
-        actualXML = actualXML.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
         MatcherAssert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
     }
 
