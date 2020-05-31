@@ -2,8 +2,9 @@ package tests;
 
 import my.app.jaxb.gen.Person;
 import my.app.jaxb.gen.Persons;
-import org.junit.Assert;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
+import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
 
 import java.math.BigDecimal;
@@ -37,8 +38,7 @@ public class TestModifyXML {
         String expectedXML = Utils.readFile("outputMultiplePersons.xml");
 
         actualXML = actualXML.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
-        Assert.assertEquals(expectedXML.trim(), actualXML.trim());
-
+        MatcherAssert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
     }
 
 }

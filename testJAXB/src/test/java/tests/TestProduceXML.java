@@ -3,7 +3,7 @@ package tests;
 import my.app.jaxb.gen.Address;
 import my.app.jaxb.gen.Person;
 import my.app.jaxb.gen.Persons;
-import org.junit.Assert;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.xmlunit.matchers.CompareMatcher;
 import utils.Utils;
@@ -39,7 +39,7 @@ public class TestProduceXML {
         String actualXML = Utils.write(persons);
         String expectedXML = Utils.readFile("expectedSinglePerson.xml");
 
-        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
+        MatcherAssert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
 
     }
 
@@ -80,7 +80,7 @@ public class TestProduceXML {
         String actualXML = Utils.write(persons);
         String expectedXML = Utils.readFile("expectedPersonWithAddress.xml");
 
-        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
+        MatcherAssert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
 
     }
 
@@ -168,7 +168,7 @@ public class TestProduceXML {
         String actualXML = Utils.write(persons);
         String expectedXML = Utils.readFile("expectedMultiplePersons.xml");
 
-        Assert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
+        MatcherAssert.assertThat(actualXML, CompareMatcher.isIdenticalTo(expectedXML));
 
     }
 
