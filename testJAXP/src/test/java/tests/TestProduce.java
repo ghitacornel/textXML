@@ -1,6 +1,6 @@
 package tests;
 
-import org.junit.Assert;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -39,7 +39,7 @@ public class TestProduce {
         String actualXML = Utils.write(document);
         String expectedXML = Utils.readFile("output_dummy.xml");
 
-        Assert.assertThat(actualXML, CompareMatcher.isSimilarTo(expectedXML).ignoreWhitespace());
+        MatcherAssert.assertThat(actualXML, CompareMatcher.isSimilarTo(expectedXML).ignoreWhitespace());
 
     }
 }
